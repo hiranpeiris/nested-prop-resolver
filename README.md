@@ -18,7 +18,14 @@ const officeAddress = responseObj.office.address; // This will give you a runtim
 So, use the 'nested-prop-resolver' to prevent runtime errors.
 
 ```js
-const officeAddress = resolve(responseObj, 'office.address'); // Output is undefined. No runtime error.
+
+// With the default value
+const officeAddress = resolve(responseObj, 'office.address', 'N/A'); // Output is 'N/A'. No runtime error.
+
+// Without the default value
+const officeAddress = resolve(responseObj, 'office.address'); // Output is 'undefined'. No runtime error.
+
+// Note: Default value is optional
 
 const userName = resolve(responseObj, 'user.name'); // Output is 'Hiran'.
 ```
@@ -46,7 +53,7 @@ const responseObj = {
   }
 };
 
-const name = resolve(responseObj, 'user.name'); // Output the value of name property.
+const name = resolve(responseObj, 'user.name'); // Output is 'Hiran'.
 
 
 // For nested arrays
@@ -58,7 +65,7 @@ const responseObj = {
   ]
 };
 
-const name = resolve(responseObj, 'users[0].name'); // Output the value of name property.
+const name = resolve(responseObj, 'users[0].name'); // Output is 'Hiran'.
 
 
 // For complex nested arrays
@@ -72,7 +79,7 @@ const responseObj = [
   }
 ];
 
-const name = resolve(responseObj, '[0].users[0].name'); // Output the value of name property.
+const name = resolve(responseObj, '[0].users[0].name'); // Output is 'Hiran'.
 
 
 // For unpresent nested props.
@@ -82,7 +89,11 @@ const responseObj = {
   }
 };
 
-const age = resolve(responseObj, 'user.age'); // Output undefined.
+// With default value
+const age = resolve(responseObj, 'user.age', 'Not Given'); // Output is 'Not Given'.
+
+// Without default value.
+const age = resolve(responseObj, 'user.age'); // Output is 'undefined'.
 
 ```
 

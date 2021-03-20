@@ -1,6 +1,6 @@
 {
   "name": "nested-prop-resolver",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "\"This library helps you to find and get a nested property from a complex json object. It protects your code from null or undefined errors\"",
   "main": "dist/index.js",
   "scripts": {

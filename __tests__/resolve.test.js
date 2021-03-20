@@ -21,6 +21,16 @@ describe('Resolver tests', () => {
     expect(name).toBe(undefined);
   });
 
+  test('unpresent nested prop with defaultValue test', () => {
+    const obj = {
+      user: {
+        name: 'Hiran'
+      }
+    };
+    const name = resolve(obj, 'user.age', 'n/a');
+    expect(name).toBe('n/a');
+  });
+
   test('nested array prop test', () => {
     const obj = {
       users: [
@@ -57,5 +67,17 @@ describe('Resolver tests', () => {
     };
     const name = resolve(obj, 'users[0].age');
     expect(name).toBe(undefined);
+  });
+
+  test('unpresent nested array prop with defaultValue test', () => {
+    const obj = {
+      users: [
+        {
+          name: 'Hiran'
+        }
+      ]
+    };
+    const name = resolve(obj, 'users[0].age', 'none');
+    expect(name).toBe('none');
   });
 });
