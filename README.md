@@ -4,19 +4,24 @@ You can use this to resolve json properties from an api response.
 
 eg:
 
+```js
 const responseObj = {
   user: {
     name: 'Hiran'
   }
 };
 
-const officeAddress = responseObj.office.address // This will give you a runtime error since there is no 'office' property in api response object.
+
+const officeAddress = responseObj.office.address; // This will give you a runtime error since there is no 'office' property in api response object.
+```
 
 So, use the 'nested-prop-resolver' to prevent runtime errors.
 
+```js
 const officeAddress = resolve(responseObj, 'office.address'); // Output is undefined. No runtime error.
 
 const userName = resolve(responseObj, 'user.name'); // Output is 'Hiran'.
+```
 
 
 ## Install
@@ -77,7 +82,7 @@ const responseObj = {
   }
 };
 
-const name = resolve(responseObj, 'user.age'); // Output undefined.
+const age = resolve(responseObj, 'user.age'); // Output undefined.
 
 ```
 
