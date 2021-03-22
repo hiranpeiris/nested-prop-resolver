@@ -16,3 +16,7 @@ export const resolve = (obj, path, defaultValue = undefined) => {
     return defaultValue;
   }
 };
+
+export const newFunc = () => {
+  console.log('I am a new function');
+};
