@@ -11,7 +11,7 @@ export const resolve = (obj, path, defaultValue = undefined) => {
         return defaultValue;
       }
     }
-    return obj;
+    return obj && obj || defaultValue;
   } catch {
     return defaultValue;
   }
